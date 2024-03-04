@@ -1512,6 +1512,17 @@ define Device/sercomm_na502s
 endef
 TARGET_DEVICES += sercomm_na502s
 
+define Device/skspruce_wia3300-10
+  $(Device/dsa-migration)
+  DEVICE_COMPAT_VERSION := 1.0
+  DEVICE_COMPAT_MESSAGE := Config is compat with swconfig
+  IMAGE_SIZE := 32448k
+  DEVICE_VENDOR := Skspruce
+  DEVICE_MODEL := WIA3300-10
+  SUPPORTED_DEVICES += wia3300-10
+  DEVICE_PACKAGES := kmod-mt7615d kmod-usb3 kmod-usb-ledtrig-usbport luci-app-mtwifi
+endef
+TARGET_DEVICES += skspruce_wia3300-10
 define Device/storylink_sap-g3200u3
   $(Device/dsa-migration)
   IMAGE_SIZE := 7872k

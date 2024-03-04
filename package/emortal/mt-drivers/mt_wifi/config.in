@@ -22,6 +22,7 @@ config MTK_CHIP_MT7615E_DBDC
 	default y if TARGET_ramips_mt7621_DEVICE_glinet_gl-mt1300
 	default y if TARGET_ramips_mt7621_DEVICE_jcg_y2
 	default y if TARGET_ramips_mt7621_DEVICE_phicomm_k2p
+	default y if TARGET_ramips_mt7621_DEVICE_skspruce_wia3300-10
 	default n
 
 config MTK_CHIP_MT7915E_DBDC

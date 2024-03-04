@@ -82,6 +82,7 @@ platform_do_upgrade() {
 	netgear,wac104|\
 	netgear,wac124|\
 	netis,wf2881|\
+	nokia-sbell,a-040w-q|\
 	raisecom,msg1500-x-00|\
 	sercomm,na502|\
 	sercomm,na502s|\

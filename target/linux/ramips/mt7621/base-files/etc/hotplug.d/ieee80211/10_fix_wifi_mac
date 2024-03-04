@@ -82,6 +82,7 @@ case "$board" in
 			macaddr_setbit_la "$(macaddr_add $hw_mac_addr 0x100000)" > /sys${DEVPATH}/macaddress
 		fi
 		;;
+	nokia-sbell,a-040w-q|\
 	raisecom,msg1500-x-00)
 		[ "$PHYNBR" = "0" ] && \
 			macaddr_setbit_la "$(mtd_get_mac_ascii Config protest_lan_mac)" \

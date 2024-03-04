@@ -699,6 +699,28 @@ define Device/gnubee_gb-pc2
 endef
 TARGET_DEVICES += gnubee_gb-pc2
 
+define Device/haier-sim
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_SIZE := 5120k
+  UBINIZE_OPTS := -E 5
+  IMAGE_SIZE := 128512k
+  IMAGES += firmware.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGE/firmware.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
+	  check-size
+  DEVICE_PACKAGES += luci-app-mtwifi uboot-envtools
+endef
+
+define Device/haier_har-20s2u1
+  $(Device/haier-sim)
+  DEVICE_VENDOR := Haier
+  DEVICE_MODEL := HAR-20S2U1
+endef
+TARGET_DEVICES += haier_har-20s2u1
+
 define Device/hilink_hlk-7621a-evb
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
@@ -1501,6 +1523,13 @@ define Device/sercomm_na502s
   		kmod-usb-serial-xr_usb_serial_common
 endef
 TARGET_DEVICES += sercomm_na502s
+
+define Device/sim_ax1800t
+  $(Device/haier-sim)
+  DEVICE_VENDOR := SIM
+  DEVICE_MODEL := AX1800T
+endef
+TARGET_DEVICES += sim_ax1800t
 
 define Device/storylink_sap-g3200u3
   $(Device/dsa-migration)

@@ -58,6 +58,7 @@ platform_do_upgrade() {
 	dlink,dir-2640-a1|\
 	dlink,dir-2660-a1|\
 	dlink,dir-853-a3|\
+	haier,har-20s2u1|\
 	hiwifi,hc5962|\
 	iptime,a3004t|\
 	iptime,ax2004m|\
@@ -85,6 +86,7 @@ platform_do_upgrade() {
 	raisecom,msg1500-x-00|\
 	sercomm,na502|\
 	sercomm,na502s|\
+	sim,ax1800t|\
 	xiaomi,mi-router-3g|\
 	xiaomi,mi-router-3-pro|\
 	xiaomi,mi-router-4|\

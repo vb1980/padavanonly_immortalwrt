@@ -24,6 +24,7 @@ ramips_setup_interfaces()
 		ucidef_set_interface_lan "lan"
 		;;
 	ampedwireless,ally-r1900k|\
+	fcj,g-ax1800|\
 	hiwifi,hc5962|\
 	haier,har-20s2u1|\
 	sim,ax1800t|\
@@ -342,6 +343,9 @@ ramips_setup_macs()
 		lan_mac=$(cat /sys/class/net/eth0/address)
 		wan_mac=$(macaddr_add "$lan_mac" 2)
 		;;
+	fcj,g-ax1800|\
+	haier,har-20s2u1|\
+	sim,ax1800t|\
 	xiaomi,mi-router-cr660x)
 		lan_mac=$(cat /sys/class/net/eth0/address)
 		wan_mac=$(mtd_get_mac_binary factory 0x3fffa)

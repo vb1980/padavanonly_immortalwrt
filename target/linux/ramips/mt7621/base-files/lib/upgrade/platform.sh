@@ -58,6 +58,7 @@ platform_do_upgrade() {
 	dlink,dir-2640-a1|\
 	dlink,dir-2660-a1|\
 	dlink,dir-853-a3|\
+	fcj,g-ax1800|\
 	haier,har-20s2u1|\
 	hiwifi,hc5962|\
 	iptime,a3004t|\

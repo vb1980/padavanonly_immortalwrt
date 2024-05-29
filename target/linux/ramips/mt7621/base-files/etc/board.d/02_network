@@ -133,6 +133,9 @@ ramips_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"0:lan" "1:lan" "2:lan" "3:lan" "4:wan" "6u@eth0" "5u@eth1"
 		;;
+	qihoo,360-router-t6x|\
+	qihoo,360-router-t6m|\
+	qihoo,360-router-t6gs|\
 	fcj,g-ax1800)
 		ucidef_add_switch "switch0" \
                         "1:lan" "2:lan" "3:lan" "0:wan" "6u@eth0" "5u@eth1"
@@ -351,6 +354,7 @@ ramips_setup_macs()
 		lan_mac=$(cat /sys/class/net/eth0/address)
 		wan_mac=$(macaddr_add "$lan_mac" 2)
 		;;
+	qihoo,360-router-t6x|\
 	fcj,g-ax1800|\
 	haier,har-20s2u1|\
 	sim,ax1800t|\

@@ -1,0 +1,9 @@
+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+
+#include "mt7621_qihoo_360-router-t6x.dtsi"
+
+/ {
+	compatible = "qihoo,360-router-t6m", "mediatek,mt7621-soc";
+	model = "Qihoo 360 Router T6M";
+};
+

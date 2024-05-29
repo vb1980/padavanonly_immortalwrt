@@ -1032,6 +1032,34 @@ define Device/jcg_y2
 endef
 TARGET_DEVICES += jcg_y2
 
+define Device/qihoo_360-router-t6x
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  DEVICE_VENDOR := Qihoo
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_SIZE := 5120k
+  UBINIZE_OPTS := -E 5
+  IMAGE_SIZE := 128512k
+  IMAGES += firmware.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGE/firmware.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
+	check-size
+  DEVICE_PACKAGES += luci-app-mtwifi uboot-envtools
+endef
+
+define Device/qihoo_360-router-t6m
+  $(Device/qihoo_360-router-t6x)
+  DEVICE_MODEL := 360 Router T6M
+endef
+TARGET_DEVICES += qihoo_360-router-t6m
+
+define Device/qihoo_360-router-t6gs
+  $(Device/qihoo_360-router-t6x)
+  DEVICE_MODEL := 360 Router T6GS
+endef
+TARGET_DEVICES += qihoo_360-router-t6gs
+
 define Device/lenovo_newifi-d1
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)

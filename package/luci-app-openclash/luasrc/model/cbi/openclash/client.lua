@@ -163,7 +163,7 @@ dler:section(SimpleSection).template  = "openclash/dlercloud"
 m:append(Template("openclash/select_git_cdn"))
 
 if uci:get("openclash", "config", "dler_token") then
-	return m, dler, form, s, ap, d
+	return m, dler, form, s, ap
 else
-	return m, form, s, ap, d
+	return m, form, s, ap
 end

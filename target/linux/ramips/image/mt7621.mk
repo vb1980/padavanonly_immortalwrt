@@ -1050,6 +1050,16 @@ define Device/jcg_y2
 endef
 TARGET_DEVICES += jcg_y2
 
+define Device/jdcloud_re-cp-02
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 16000k
+  DEVICE_VENDOR := JD-Cloud
+  DEVICE_MODEL := RE-CP-02
+  DEVICE_PACKAGES := luci-app-mtwifi kmod-sdhci-mt7620 automount
+endef
+TARGET_DEVICES += jdcloud_re-cp-02
+
 define Device/qihoo_360-router-t6x
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)

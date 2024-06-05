@@ -51,6 +51,9 @@ ravpower,rp-wd03)
 		ubootenv_add_uci_config "/dev/mtd$idx" "0x4000" "0x1000" "0x1000"
 	;;
 c-life,xg1|\
+h3c,tx1800-plus|\
+h3c,tx1801-plus|\
+h3c,tx1806|\
 jcg,q20)
 	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x20000" "0x20000"
 	;;

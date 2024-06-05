@@ -24,6 +24,9 @@ ramips_setup_interfaces()
 		ucidef_set_interface_lan "lan"
 		;;
 	ampedwireless,ally-r1900k|\
+	h3c,tx1800-plus|\
+	h3c,tx1801-plus|\
+	h3c,tx1806|\
 	hiwifi,hc5962|\
 	xwrt,wr1800k-ax-nand|\
 	xiaomi,mi-router-3-pro-nor|\
@@ -287,6 +290,13 @@ ramips_setup_macs()
 	netgear,wndr3700-v5)
 		lan_mac=$(cat /sys/class/net/eth0/address)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
+		;;
+	h3c,tx1800-plus|\
+	h3c,tx1801-plus|\
+	h3c,tx1806)
+		label_mac=$(mtd_get_mac_ascii u-boot-env ethaddr)
+		lan_mac=$(macaddr_add "$label_mac" 1)
+		wan_mac=$label_mac
 		;;
 	hiwifi,hc5962)
 		lan_mac=$(mtd_get_mac_ascii bdinfo "Vfac_mac ")

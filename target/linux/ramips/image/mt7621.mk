@@ -13,6 +13,12 @@ ifdef CONFIG_LINUX_5_10
   DTS_CPPFLAGS += -DDTS_LEGACY
 endif
 
+define Build/h3c-blank-header
+	dd if=/dev/zero of=$@.blank bs=160 count=1
+	cat $@ >> $@.blank
+	mv $@.blank $@
+endef
+
 define Build/beeline-trx
 	echo -ne "hsqs" > $@.hsqs
 	$(STAGING_DIR_HOST)/bin/otrx create $@.trx -M 0x746f435d -f $@ \
@@ -734,6 +740,40 @@ define Device/gnubee_gb-pc2
   IMAGE_SIZE := 32448k
 endef
 TARGET_DEVICES += gnubee_gb-pc2
+
+define Device/h3c_tx180x
+  $(Device/dsa-migration)
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_SIZE := 8192k
+  IMAGE_SIZE := 120832k
+  UBINIZE_OPTS := -E 5
+  KERNEL_LOADADDR := 0x82000000
+  KERNEL_INITRAMFS := kernel-bin | relocate-kernel 0x80001000 | lzma | \
+	  fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
+  KERNEL := $$(KERNEL_INITRAMFS) | h3c-blank-header
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  DEVICE_VENDOR := H3C
+  DEVICE_PACKAGES := luci-app-mtwifi uboot-envtools
+endef
+
+define Device/h3c_tx1800-plus
+  $(Device/h3c_tx180x)
+  DEVICE_MODEL := TX1800 Plus
+endef
+TARGET_DEVICES += h3c_tx1800-plus
+
+define Device/h3c_tx1801-plus
+  $(Device/h3c_tx180x)
+  DEVICE_MODEL := TX1801 Plus
+endef
+TARGET_DEVICES += h3c_tx1801-plus
+
+define Device/h3c_tx1806
+  $(Device/h3c_tx180x)
+  DEVICE_MODEL := TX1806
+endef
+TARGET_DEVICES += h3c_tx1806
 
 define Device/haier-sim
   $(Device/dsa-migration)

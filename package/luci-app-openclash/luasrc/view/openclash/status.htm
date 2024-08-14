@@ -897,17 +897,17 @@
     
     function logo_check(imgobj,imgSrc,imgNewSrc)
     {
-	var newimg = new Image();
-	newimg.src = imgNewSrc;
-	newimg.onload = function() {
+		var newimg = new Image();
+		newimg.src = imgNewSrc;
+		newimg.onload = function() {
     		imgobj.src = imgNewSrc;
-		imgobj.loading = "lazy";
-		imgobj.onload = function() {};
-	};
-	newimg.onerror = function() {
-		imgobj.onload = function() {};
-		imgerrorfuns(imgobj,imgSrc);
-	};
+			imgobj.loading = "lazy";
+			imgobj.onload = function() {};
+		};
+		newimg.onerror = function() {
+			imgobj.onload = function() {};
+			imgerrorfuns(imgobj,imgSrc);
+		};
     };
 
     function clashversion_check()

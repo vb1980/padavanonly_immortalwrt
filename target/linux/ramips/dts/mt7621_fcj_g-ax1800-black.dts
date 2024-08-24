@@ -145,11 +145,7 @@
 
 &gsw {
 	mediatek,mdio = <&mdio>;
-<<<<<<< HEAD
 	mediatek,portmap = "llllw";
-=======
-	mediatek,portmap = "wllll";
->>>>>>> 50aa8e773ea3d40c41c1b283b3774352585d1293
 	mediatek,mcm;
 	mt7530,direct-phy-access;
 

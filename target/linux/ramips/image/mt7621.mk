@@ -1096,6 +1096,24 @@ define Device/jcg_q20
 endef
 TARGET_DEVICES += jcg_q20
 
+define Device/jcg_q10pro
+  $(Device/dsa-migration)
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  UBINIZE_OPTS := -E 5
+  KERNEL_SIZE := 5120k
+  IMAGE_SIZE := 91136k
+  IMAGES += factory.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
+	check-size
+  DEVICE_VENDOR := JCG
+  DEVICE_MODEL := Q10
+  DEVICE_VARIANT := Pro
+  DEVICE_PACKAGES := luci-app-mtwifi uboot-envtools
+endef
+TARGET_DEVICES += jcg_q10pro
+
 define Device/jcg_y2
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)

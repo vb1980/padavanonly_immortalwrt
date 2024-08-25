@@ -69,7 +69,8 @@ case "$board" in
 			macaddr_setbit_la "$(macaddr_add $hw_mac_addr 3)" > /sys${DEVPATH}/macaddress
 		fi
 		;;
-	jcg,q20)
+	jcg,q20|\
+	jcg,q10pro)
 		[ "$PHYNBR" = "1" ] && \
 			macaddr_setbit_la "$(mtd_get_mac_binary Factory 0x4)" > /sys${DEVPATH}/macaddress
 		;;

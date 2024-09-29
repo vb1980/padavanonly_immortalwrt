@@ -230,6 +230,11 @@ ramips_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"0:lan" "1:lan" "2:lan" "3:lan" "4:wan" "6u@eth0" "5u@eth1"
 		;;
+	ztt,rx6k)
+		ucidef_add_switch "switch0" \
+                        "1:lan" "2:lan" "3:lan" "4:wan" "6u@eth0" "5u@eth1"
+                ucidef_set_interfaces_lan_wan "eth0 rax0 ra0" "eth1"
+                ;;
 	*)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" "wan"
 		;;
@@ -386,7 +391,8 @@ ramips_setup_macs()
 	fcj,g-ax1800-black|\
 	haier,har-20s2u1|\
 	sim,ax1800t|\
-	xiaomi,mi-router-cr660x)
+	xiaomi,mi-router-cr660x|\
+	ztt,rx6k)
 		lan_mac=$(cat /sys/class/net/eth0/address)
 		wan_mac=$(mtd_get_mac_binary factory 0x3fffa)
 		;;

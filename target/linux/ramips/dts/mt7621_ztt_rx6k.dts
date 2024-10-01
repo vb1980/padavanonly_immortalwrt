@@ -11,8 +11,8 @@
 	
 	aliases {
 		led-boot = &led_status_red;
-		led-failsafe = &led_status_red;
-		led-running = &led_status_green;
+		led-failsafe = &led_status_green;
+		led-running = &led_status_blue;
 		led-upgrade = &led_status_red;
 		label-mac-device = &gmac0;
 	};
@@ -26,12 +26,17 @@
 
 		led_status_red: sys_red {
                         label = "red:status";
-                        gpios = <&gpio 7 GPIO_ACTIVE_LOW>;
+                        gpios = <&gpio 17 GPIO_ACTIVE_LOW>;
                 };
-
+                
                 led_status_green: sys_green {
                         label = "green:status";
-                        gpios = <&gpio 8 GPIO_ACTIVE_LOW>;
+                        gpios = <&gpio 13 GPIO_ACTIVE_LOW>;
+                };
+
+                led_status_blue: sys_blue {
+                        label = "blue:status";
+                        gpios = <&gpio 15 GPIO_ACTIVE_LOW>;
                 };
 	};
 

@@ -40,7 +40,8 @@ ramips_setup_interfaces()
 		;;
 	jdcloud,re-cp-02|\
 	haier,har-20s2u1|\
-	sim,ax1800t)
+	sim,ax1800t|\
+	konka,komi-a8)
 		ucidef_set_interfaces_lan_wan "eth0 rax0 ra0" "eth1"
 		ucidef_add_switch "switch0" \
 			"0:lan" "1:lan" "2:lan" "4:wan" "6u@eth0" "5u@eth1"

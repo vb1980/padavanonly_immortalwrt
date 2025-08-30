@@ -1155,6 +1155,24 @@ define Device/konka_komi-a8
 endef
 TARGET_DEVICES += konka_komi-a8
 
+define Device/maipu_mpax18
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_SIZE := 5120k
+  UBINIZE_OPTS := -E 5
+  IMAGE_SIZE := 128512k
+  IMAGES += firmware.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGE/firmware.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
+	  check-size
+  DEVICE_VENDOR := MAIPU
+  DEVICE_MODEL := MPAX18
+  DEVICE_PACKAGES += luci-app-mtwifi uboot-envtools
+endef
+TARGET_DEVICES += maipu_mpax18
+
 define Device/qihoo_360-router-t6x
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)

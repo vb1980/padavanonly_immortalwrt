@@ -398,7 +398,8 @@ ramips_setup_macs()
 	haier,har-20s2u1|\
 	sim,ax1800t|\
 	xiaomi,mi-router-cr660x|\
-	ztt,rx6k)
+	ztt,rx6k|\
+	maipu,mpax18)
 		lan_mac=$(cat /sys/class/net/eth0/address)
 		wan_mac=$(mtd_get_mac_binary factory 0x3fffa)
 		;;

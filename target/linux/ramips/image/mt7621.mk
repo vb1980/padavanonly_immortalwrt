@@ -1155,52 +1155,6 @@ define Device/konka_komi-a8
 endef
 TARGET_DEVICES += konka_komi-a8
 
-define Device/maipu_mpax18
-  $(Device/dsa-migration)
-  $(Device/uimage-lzma-loader)
-  BLOCKSIZE := 128k
-  PAGESIZE := 2048
-  KERNEL_SIZE := 5120k
-  UBINIZE_OPTS := -E 5
-  IMAGE_SIZE := 128512k
-  IMAGES += firmware.bin
-  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
-  IMAGE/firmware.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
-	  check-size
-  DEVICE_VENDOR := MAIPU
-  DEVICE_MODEL := MPAX18
-  DEVICE_PACKAGES += luci-app-mtwifi uboot-envtools
-endef
-TARGET_DEVICES += maipu_mpax18
-
-define Device/qihoo_360-router-t6x
-  $(Device/dsa-migration)
-  $(Device/uimage-lzma-loader)
-  DEVICE_VENDOR := Qihoo
-  BLOCKSIZE := 128k
-  PAGESIZE := 2048
-  KERNEL_SIZE := 5120k
-  UBINIZE_OPTS := -E 5
-  IMAGE_SIZE := 128512k
-  IMAGES += firmware.bin
-  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
-  IMAGE/firmware.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
-	check-size
-  DEVICE_PACKAGES += luci-app-mtwifi uboot-envtools
-endef
-
-define Device/qihoo_360-router-t6m
-  $(Device/qihoo_360-router-t6x)
-  DEVICE_MODEL := 360 Router T6M
-endef
-TARGET_DEVICES += qihoo_360-router-t6m
-
-define Device/qihoo_360-router-t6gs
-  $(Device/qihoo_360-router-t6x)
-  DEVICE_MODEL := 360 Router T6GS
-endef
-TARGET_DEVICES += qihoo_360-router-t6gs
-
 define Device/lenovo_newifi-d1
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
@@ -1308,6 +1262,24 @@ define Device/linksys_re6500
   SUPPORTED_DEVICES += re6500
 endef
 TARGET_DEVICES += linksys_re6500
+
+define Device/maipu_mpax18
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_SIZE := 5120k
+  UBINIZE_OPTS := -E 5
+  IMAGE_SIZE := 128512k
+  IMAGES += firmware.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGE/firmware.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
+	  check-size
+  DEVICE_VENDOR := MAIPU
+  DEVICE_MODEL := MPAX18
+  DEVICE_PACKAGES += luci-app-mtwifi uboot-envtools
+endef
+TARGET_DEVICES += maipu_mpax18
 
 define Device/mediatek_ap-mt7621a-v60
   $(Device/dsa-migration)
@@ -1439,7 +1411,6 @@ define Device/netgear_r6220
   SUPPORTED_DEVICES += r6220
 endef
 TARGET_DEVICES += netgear_r6220
-
 
 define Device/netgear_r6260
   $(Device/netgear_sercomm_nand)
@@ -1641,6 +1612,34 @@ define Device/planex_vr500
   SUPPORTED_DEVICES += vr500
 endef
 TARGET_DEVICES += planex_vr500
+
+define Device/qihoo_360-router-t6x
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  DEVICE_VENDOR := Qihoo
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_SIZE := 5120k
+  UBINIZE_OPTS := -E 5
+  IMAGE_SIZE := 128512k
+  IMAGES += firmware.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGE/firmware.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
+	check-size
+  DEVICE_PACKAGES += luci-app-mtwifi uboot-envtools
+endef
+
+define Device/qihoo_360-router-t6m
+  $(Device/qihoo_360-router-t6x)
+  DEVICE_MODEL := 360 Router T6M
+endef
+TARGET_DEVICES += qihoo_360-router-t6m
+
+define Device/qihoo_360-router-t6gs
+  $(Device/qihoo_360-router-t6x)
+  DEVICE_MODEL := 360 Router T6GS
+endef
+TARGET_DEVICES += qihoo_360-router-t6gs
 
 define Device/raisecom_msg1500-x-00
   $(Device/dsa-migration)

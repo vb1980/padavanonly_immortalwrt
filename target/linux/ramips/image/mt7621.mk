@@ -1613,10 +1613,10 @@ define Device/planex_vr500
 endef
 TARGET_DEVICES += planex_vr500
 
-define Device/qihoo_360-router-t6x
+define Device/qihoo360_t6x
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
-  DEVICE_VENDOR := Qihoo
+  DEVICE_VENDOR := Qihoo 360
   BLOCKSIZE := 128k
   PAGESIZE := 2048
   KERNEL_SIZE := 5120k
@@ -1629,17 +1629,23 @@ define Device/qihoo_360-router-t6x
   DEVICE_PACKAGES += luci-app-mtwifi uboot-envtools
 endef
 
-define Device/qihoo_360-router-t6m
-  $(Device/qihoo_360-router-t6x)
-  DEVICE_MODEL := 360 Router T6M
+define Device/qihoo360_t6gs
+  $(Device/qihoo360_t6x)
+  DEVICE_MODEL := T6GS
 endef
-TARGET_DEVICES += qihoo_360-router-t6m
+TARGET_DEVICES += qihoo360_t6gs
 
-define Device/qihoo_360-router-t6gs
-  $(Device/qihoo_360-router-t6x)
-  DEVICE_MODEL := 360 Router T6GS
+define Device/qihoo360_t6m
+  $(Device/qihoo360_t6x)
+  DEVICE_MODEL := T6M
 endef
-TARGET_DEVICES += qihoo_360-router-t6gs
+TARGET_DEVICES += qihoo360_t6m
+
+define Device/qihoo360_t6u
+  $(Device/qihoo360_t6x)
+  DEVICE_MODEL := T6U
+endef
+TARGET_DEVICES += qihoo360_t6u
 
 define Device/raisecom_msg1500-x-00
   $(Device/dsa-migration)

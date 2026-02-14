@@ -61,6 +61,7 @@ platform_do_upgrade() {
 	dlink,dir-853-a3|\
 	fcj,g-ax1800|\
 	fcj,g-ax1800-black|\
+	fcj,g-ax1800-f|\
 	h3c,tx1800-plus|\
 	h3c,tx1801-plus|\
 	h3c,tx1806|\

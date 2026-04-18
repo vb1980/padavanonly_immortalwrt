@@ -676,7 +676,7 @@ define Device/elecom_wrc-2533gst2
 endef
 TARGET_DEVICES += elecom_wrc-2533gst2
 
-define Device/fcj_g-ax1800
+define Device/fcj_g-ax1800-white
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
   BLOCKSIZE := 128k
@@ -690,9 +690,10 @@ define Device/fcj_g-ax1800
 	  check-size
   DEVICE_VENDOR := FCJ
   DEVICE_MODEL := G-AX1800
+  DEVICE_VARIANT := White
   DEVICE_PACKAGES += luci-app-mtwifi uboot-envtools
 endef
-TARGET_DEVICES += fcj_g-ax1800
+TARGET_DEVICES += fcj_g-ax1800-white
 
 define Device/fcj_g-ax1800-black
   $(Device/dsa-migration)
